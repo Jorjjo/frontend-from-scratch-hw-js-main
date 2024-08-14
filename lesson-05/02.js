@@ -30,9 +30,22 @@ console.log(gallery)
 */
 
 const gallery = {
-  'Mona Lisa': 'Leonardo da Vinci',
-  'Starry Night': 'Vincent van Gogh',
-  'The Scream': 'Edvard Munch',
+  "Mona Lisa": "Leonardo da Vinci",
+  "Starry Night": "Vincent van Gogh",
+  "The Scream": "Edvard Munch",
+};
+
+function updateGallery(gallery, name, newValue) {
+  for (const key in gallery) {
+    if (key === name) {
+      gallery[key] = newValue;
+
+    }
+    gallery.name;
+    gallery[name] = newValue;
+  }
+
 }
 
-function updateGallery() {}
+updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali');
+console.log(gallery);
