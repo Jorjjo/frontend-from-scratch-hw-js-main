@@ -37,11 +37,6 @@ const gallery = {
 
 function updateGallery(gallery, name, newValue) {
   for (const key in gallery) {
-    if (key === name) {
-      gallery[key] = newValue;
-
-    }
-    gallery.name;
     gallery[name] = newValue;
   }
 
