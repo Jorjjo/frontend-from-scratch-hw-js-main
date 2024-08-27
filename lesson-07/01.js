@@ -1,3 +1,5 @@
+'use strict'
+
 /*
   Нужно написать функцию capitalizeWords, которая принимает строку и делает так, чтобы каждое слово начиналось с заглавной буквы.
   Например, если передать строку "hello world from javascript", функция должна вернуть "Hello World From JavaScript".
@@ -11,7 +13,7 @@ function capitalizeWords(str) {
   let newStrArr = [];
   // console.log(strArr);
   for (const el of strArr) {
-    newEl = el[0].toUpperCase() + el.slice(1);
+    const newEl = el[0].toUpperCase() + el.slice(1);
     newStrArr.push(newEl);
   }
   return newStrArr.join(" ");

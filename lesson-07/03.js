@@ -11,7 +11,7 @@
 
 function truncate(str, maxLength) {
   if (str.length > maxLength) {
-    newStr = str.substr(0, maxLength) + "...";
+    const newStr = str.substr(0, maxLength) + "...";
     return newStr;
   }
   return str;
