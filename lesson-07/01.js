@@ -18,6 +18,7 @@ function capitalizeWords(str) {
 }
 
 console.log(capitalizeWords("hello world from javascript"));
+console.log(capitalizeWords("a"));
 
 // function cW2(str) {
 //   for (let i = 0; i < str.length; i++) {
