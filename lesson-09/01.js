@@ -15,11 +15,8 @@
 
 // Пример использования:
 
-
-
-
 const filter = (array, callback) => {
-  filteredArr = [];
+  const filteredArr = [];
   for (let i = 0; i < array.length; i++) {
     if (callback(array[i], i)) {
       filteredArr.push(array[i]);
