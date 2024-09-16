@@ -26,8 +26,30 @@ const model = {
   addMovie(title, description) {
     const id = Math.random();
     const newMovie = { id, title, description };
-    this.movies.push(newMovie);
+
+    let newMovies = [...this.movies, newMovie];
+    this.setMovies(newMovies);
     view.renderMovies(this.movies);
+  },
+  deleteMovie(id) {
+    // console.log("model delete movie is fired, id:", id);
+    // console.log(this);
+
+    let newMovies = [...this.movies];
+    newMovies.splice(
+      newMovies.findIndex((movie) => movie.id === Number(id)),
+      1
+    );
+
+    // let newMovies = this.movies.filter((movie) => {
+    //   return movie.id !== Number(id);
+    // });
+
+    this.setMovies(newMovies);
+    view.renderMovies(this.movies);
+  },
+  setMovies(movies) {
+    this.movies = movies;
   },
   // your code_________________________________________________________________
 };
@@ -51,7 +73,19 @@ const view = {
     });
 
     // your code_____________________________________________________________________
-    
+    const filmList = document.querySelector(".list");
+
+    filmList.addEventListener("click", (event) => {
+      const eTarget = event.target;
+
+      if (eTarget.className !== "delete-button") {
+        return;
+      }
+
+      const parentMovieCard = eTarget.closest(".movie");
+
+      controller.deleteMovie(parentMovieCard.id);
+    });
   },
   renderMovies(movies) {
     const list = document.querySelector(".list");
@@ -91,7 +125,11 @@ const controller = {
       view.displayMessage("Заполните все поля!", true);
     }
   },
-  // your code - здесь кнопка для удаления фильма
+  deleteMovie(id) {
+    model.deleteMovie(id);
+    view.displayMessage("Фильм успешно удалён!");
+  },
+  // your code - уудаления фильма
 };
 
 function init() {
